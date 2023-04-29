@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Wtykaczka brandowa",
+    "description":"Podmienia błędny zapis brandu na Brand® Product",
+    "version": "0.1",
+
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "Dawaj naklikai"
+    },
+  
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }],
+
+    "background": {
+        "service_worker": "background.js"
+      },
+
+    "commands": {
+        "brand-update": {
+          "suggested_key": "Ctrl+Q",
+          "description": "Znajdź i podmień brand na wersję z ® w aktywnym polu"        
+        }
+    }
+}
